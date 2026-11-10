@@ -8,7 +8,7 @@ import { mkdirSync } from "node:fs";
 const { chromium } = createRequire(import.meta.url)("playwright"); // global install: require finds it
 const here = import.meta.dirname;
 // Bump the folder when tiles change: GitHub caches an image by its path.
-const out = resolve(here, "../profile/bento/v2");
+const out = resolve(here, "../profile/bento/v3");
 mkdirSync(out, { recursive: true });
 const browser = await chromium.launch();
 const page = await browser.newPage({ deviceScaleFactor: 2, viewport: { width: 1200, height: 900 } });
