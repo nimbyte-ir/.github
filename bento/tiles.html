@@ -64,6 +64,16 @@ h1 { font-size: 72px; line-height: 1.25; }
 .steps > div { background: rgba(244, 239, 231, .08); border-radius: 16px; padding: 12px 14px; }
 .step { display: block; color: var(--coral); font-weight: 800; font-size: 15px; margin-bottom: 2px; }
 .steps h3 { font-size: 17px; }
+/* Bitty's wave, as the site's src/styles/bitty.css draws it: 2.4s, 16 steps; build.mjs takes a frame per step. */
+.wave { width: 64px; flex: none; align-self: center; } .wave svg { width: 100%; height: auto; display: block; }
+.wave [data-part=hand] { animation: wave-hand 2.4s step-end infinite; }
+.wave [data-part=motion] { animation: wave-motion 2.4s step-end infinite; }
+.wave [data-part=eye-open] { animation: wink-open 2.4s step-end infinite; }
+.wave [data-part=eye-wink] { animation: wink-closed 2.4s step-end infinite; }
+@keyframes wave-hand { 0%, 12.5%, 25%, 37.5%, 50% { transform: translateX(0); } 6.25%, 31.25% { transform: translateX(16px); } 18.75%, 43.75% { transform: translateX(-16px); } }
+@keyframes wave-motion { 0%, 25%, 50% { opacity: 1; } 18.75%, 43.75% { opacity: 0; } }
+@keyframes wink-open { 0%, 81.25% { opacity: 1; } 62.5% { opacity: 0; } }
+@keyframes wink-closed { 0%, 81.25% { opacity: 0; } 62.5% { opacity: 1; } }
 </style>
 </head>
 <body>
@@ -130,8 +140,9 @@ h1 { font-size: 72px; line-height: 1.25; }
   <div class="label">کانال تلگرام</div><div class="grow"></div><div class="mono handle">@nimByte</div>
 </div></div><div class="wrap" id="c-instagram" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
   <div class="label">اینستاگرام</div><div class="grow"></div><div class="mono handle">@nimbyte.ir</div>
-</div></div><div class="wrap" id="c-bitty" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
-  <div class="label">ربات بیتی</div><div class="grow"></div><div class="mono handle">@bittyAi</div>
+</div></div><div class="wrap" id="c-bitty" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px;flex-direction:row;align-items:stretch;gap:10px">
+  <div style="display:flex;flex-direction:column;flex:1"><div class="label">ربات بیتی</div><div class="grow"></div><div class="mono handle">@bittyAi</div></div>
+  <div class="wave"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -8 281 344" role="img" aria-label="Bitty, wave"><g data-part="body"><rect x="0" y="150" width="44" height="44" rx="6" fill="#20211f"/><rect x="0" y="200" width="44" height="44" rx="6" fill="#20211f"/><rect x="150" y="150" width="44" height="44" rx="6" fill="#20211f"/><rect x="150" y="200" width="44" height="44" rx="6" fill="#20211f"/></g><g data-part="hand"><rect x="200" y="100" width="44" height="44" rx="6" fill="#20211f"/></g><g data-part="body"><rect x="0" y="250" width="44" height="44" rx="6" fill="#20211f"/><rect x="50" y="250" width="44" height="44" rx="6" fill="#20211f"/><rect x="100" y="250" width="44" height="44" rx="6" fill="#20211f"/><rect x="150" y="250" width="44" height="44" rx="6" fill="#20211f"/></g><g data-part="legs"><rect x="57" y="300" width="26" height="36" rx="6" fill="#20211f"/><rect x="111" y="300" width="26" height="36" rx="6" fill="#20211f"/></g><g data-part="motion"><rect x="255" y="83" width="18" height="18" rx="6" fill="#fbdcd4"/><rect x="263" y="127.99999999999999" width="18" height="18" rx="6" fill="#fbdcd4"/></g><g data-part="head"><rect x="57" y="7" width="102" height="102" rx="10" fill="#20211f"/><rect x="46" y="-4" width="102" height="102" rx="10" fill="#fa604e" stroke="#20211f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="67.6" y="32.72" width="13" height="22" rx="3" fill="#20211f"/><g data-part="eye-wink"><rect x="97.24000000000001" y="41.72" width="19" height="6" rx="3" fill="#20211f"/></g><g data-part="eye-open" opacity="0"><rect x="100.24000000000001" y="32.72" width="13" height="22" rx="3" fill="#20211f"/></g><rect x="86" y="70.72" width="16" height="5" rx="2.5" fill="#20211f"/></g></svg></div>
 </div></div><div class="wrap" id="c-blog" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
   <div class="label">بلاگ</div><div class="grow"></div><div class="mono handle">nimbyte.ir/blog</div>
 </div></div>
