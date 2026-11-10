@@ -1,0 +1,140 @@
+<!doctype html>
+<!-- nimbyte-ir's organization README tiles. Each .wrap is one PNG: build.mjs screenshots it with its
+     8px transparent margin, so tiles laid side by side in the README leave a 16px gap. -->
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: Vazirmatn; src: url(src/Vazirmatn-Variable.woff2); font-weight: 100 900; }
+@font-face { font-family: JBM; src: url(src/JetBrainsMono-Regular.ttf); font-weight: 400; }
+@font-face { font-family: JBM; src: url(src/JetBrainsMono-ExtraBold.ttf); font-weight: 800; }
+:root {
+  --ink: #20211f; --muted: #5c5650; --cream: #f4efe7; --sand: #ebe3d6; --paper: #fffdf9;
+  --coral: #fa604e; --coral-ink: #9f3a2b; --coral-soft: #fbdcd4; --green-soft: #dcebd9;
+  --blue-soft: #dfe6f7;
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: transparent; font-family: Vazirmatn, sans-serif; color: var(--ink); padding: 20px; }
+.wrap { padding: 8px; margin-bottom: 20px; }
+.tile { width: 100%; height: 100%; border-radius: 24px; padding: 26px 28px; position: relative;
+  display: flex; flex-direction: column; overflow: hidden; }
+.paper { background: var(--paper); } .sand { background: var(--sand); }
+.coral { background: var(--coral); } .coral-soft { background: var(--coral-soft); }
+.blue { background: var(--blue-soft); } .green { background: var(--green-soft); }
+.ink { background: var(--ink); color: var(--cream); }
+.ink.dark { box-shadow: inset 0 0 0 1.5px rgba(244, 239, 231, .16); }
+.mono { font-family: JBM, monospace; }
+.label { font-family: JBM, monospace; font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.label i { width: 8px; height: 8px; border-radius: 2px; background: var(--coral); display: inline-block; }
+.ink .label { color: rgba(244, 239, 231, .64); }
+h1 { font-size: 46px; line-height: 1.15; font-weight: 900; letter-spacing: -.5px; }
+h2 { font-size: 25px; line-height: 1.3; font-weight: 800; }
+h3 { font-size: 19px; line-height: 1.35; font-weight: 700; }
+.lead { font-size: 19px; line-height: 1.6; font-weight: 500; color: var(--muted); }
+.small { font-size: 15px; line-height: 1.55; color: var(--muted); }
+.ink .small { color: rgba(244, 239, 231, .72); }
+.fa { font-family: Vazirmatn; direction: rtl; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 12px; background: var(--paper); }
+.tight { gap: 6px; } .tight .chip { font-size: 13px; padding: 4px 10px; }
+.chip.sand { background: var(--sand); }
+.grow { flex: 1; }
+.row { display: flex; gap: 14px; align-items: baseline; }
+.when { font-family: JBM, monospace; font-size: 13px; color: var(--muted); width: 104px; flex: none; }
+.arrow { position: absolute; top: 22px; right: 24px; width: 36px; height: 36px; border-radius: 12px;
+  background: var(--sand); display: grid; place-items: center; font-family: JBM; font-weight: 800; font-size: 18px; }
+.coral .arrow { background: rgba(32, 33, 31, .12); }
+.raised { box-shadow: 0 1px 2px rgba(32, 33, 31, .05), 0 3px 6px rgba(32, 33, 31, .05); }
+.shot { width: 100%; aspect-ratio: 1200 / 560; object-fit: cover; object-position: center; border-radius: 16px; display: block; }
+.num { font-size: 34px; font-weight: 900; line-height: 1.2; letter-spacing: -.5px; }
+.unit { font-size: 16px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
+.heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 13px); gap: 4px; justify-content: space-between; direction: ltr; }
+.heat b, .legend b { width: 13px; height: 13px; border-radius: 3px; display: inline-block; }
+.legend { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+.l0 { background: var(--sand); } .l1 { background: var(--coral-soft); } .l2 { background: #fca394; }
+.l3 { background: var(--coral); } .l4 { background: var(--coral-ink); }
+.icon { width: 44px; height: 44px; border-radius: 12px; background: var(--coral-soft); display: grid; place-items: center; }
+.icon svg { width: 24px; height: 24px; fill: none; stroke: var(--coral-ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+h1 { font-size: 72px; line-height: 1.25; }
+.arrow { right: auto; left: 24px; }
+.handle { font-size: 15px; font-weight: 800; direction: ltr; text-align: right; }
+.label { letter-spacing: 0; text-transform: none; font-family: Vazirmatn; font-size: 14px; font-weight: 600; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.steps > div { background: rgba(244, 239, 231, .08); border-radius: 16px; padding: 12px 14px; }
+.step { display: block; color: var(--coral); font-weight: 800; font-size: 15px; margin-bottom: 2px; }
+.steps h3 { font-size: 17px; }
+</style>
+</head>
+<body>
+
+<div class="wrap" id="hero" style="width:640px;height:330px"><div class="tile paper">
+  <div class="label"><i></i><span class="mono">nimbyte.ir</span></div>
+  <div class="grow"></div>
+  <h1>نیم‌بایت</h1>
+  <p class="lead" style="margin-top:8px;color:var(--ink);font-weight:700">سایت، داشبورد، ربات تلگرام و مینی اپ تلگرام می‌سازیم.</p>
+  <p class="lead">از نیم‌بایت تا یک محصول کامل.</p>
+  <div class="mono" style="margin-top:14px;color:var(--coral-ink);font-weight:800;font-size:17px;direction:ltr;text-align:right">nimbyte</div>
+</div></div>
+<div class="wrap" id="bitty" style="width:360px;height:330px"><div class="tile coral-soft" style="align-items:center">
+  <img src="src/bitty.svg" style="height:236px;margin-top:4px"><div class="grow"></div>
+  <p class="small" style="color:var(--ink)">بیتی، شخصیت نیم‌بایت</p>
+</div></div>
+<div class="wrap" id="s-web" style="width:334px;height:178px"><div class="tile paper raised">
+  <span class="icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div class="grow"></div>
+  <h3>سایت، داشبورد و مینی اپ تلگرام</h3><p class="small" style="margin-top:2px">از لندینگ تا فروشگاه و پنل مدیریت.</p>
+</div></div><div class="wrap" id="s-bots" style="width:333px;height:178px"><div class="tile paper raised">
+  <span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9.5 13.5v1M14.5 13.5v1M2 13v3M22 13v3"/><circle cx="12" cy="3.5" r="1.2"/></svg></span><div class="grow"></div>
+  <h3>ربات و اتوماسیون</h3><p class="small" style="margin-top:2px">ربات تلگرام و بله با پنل مدیریت، و خودکار کردن کارهای تکراری.</p>
+</div></div><div class="wrap" id="s-stickers" style="width:333px;height:178px"><div class="tile paper raised">
+  <span class="icon"><svg viewBox="0 0 24 24"><path d="M21 12.5V7a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h5.5z"/><path d="M21 12.5 12.5 21v-4.5a4 4 0 0 1 4-4z"/><path d="M8 9.5v.5M13 9.5v.5M8 14c1 1 2 1.4 3 1.4"/></svg></span><div class="grow"></div>
+  <h3>استیکر و ایموجی متحرک</h3><p class="small" style="margin-top:2px">استیکر و ایموجی متحرک مخصوص شما برای تلگرام.</p>
+</div></div><div class="wrap" id="s-premium" style="width:334px;height:178px"><div class="tile paper raised">
+  <span class="icon"><svg viewBox="0 0 24 24"><path d="M21.2 3.6 2.9 10.7c-.8.3-.8 1.4 0 1.7l5 1.8 1.9 5.6c.2.7 1.1.9 1.6.4l2.7-2.6 4.6 3.4c.6.4 1.4.1 1.6-.6l3-15.6c.2-.8-.6-1.5-1.4-1.2z"/><path d="m7.9 14.2 9.6-6.5-6.3 7.4"/></svg></span><div class="grow"></div>
+  <h3>Telegram Premium</h3><p class="small" style="margin-top:2px">Premium سه، شش و دوازده‌ماهه، برای خودتان یا هدیه.</p>
+</div></div><div class="wrap" id="s-stars" style="width:333px;height:178px"><div class="tile paper raised">
+  <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg></span><div class="grow"></div>
+  <h3>Telegram Stars</h3><p class="small" style="margin-top:2px">Stars به هر تعدادی که لازم دارید، برای خودتان یا هدیه.</p>
+</div></div><div class="wrap" id="s-ads" style="width:333px;height:178px"><div class="tile paper raised">
+  <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 10v4h4l8 5V5L7 10z"/><path d="M18.5 9a4 4 0 0 1 0 6M7 14l1.5 6h3L10 15.5"/></svg></span><div class="grow"></div>
+  <h3>تبلیغات Telegram Ads</h3><p class="small" style="margin-top:2px">کمپین تبلیغاتی در خود تلگرام.</p>
+</div></div>
+<div class="wrap" id="w-nakoja" style="width:334px;height:262px"><div class="tile paper raised" style="padding:12px 12px 18px">
+  <img class="shot" src="src/nakoja-online-shop.png">
+  <div style="padding:14px 8px 0"><h3>ناکجا</h3><p class="small">فروشگاه اینترنتی، از صفحه‌ی کالا تا پنل فروشنده</p></div>
+</div></div><div class="wrap" id="w-ads" style="width:333px;height:262px"><div class="tile paper raised" style="padding:12px 12px 18px">
+  <img class="shot" src="src/adsprovider-cover.png">
+  <div style="padding:14px 8px 0"><h3>AdsProvider</h3><p class="small">ربات ثبت تبلیغ در Telegram Ads</p></div>
+</div></div><div class="wrap" id="w-hesabdar" style="width:333px;height:262px"><div class="tile paper raised" style="padding:12px 12px 18px">
+  <img class="shot" src="src/hesabdar-cover.png">
+  <div style="padding:14px 8px 0"><h3>حسابدار</h3><p class="small">ماشین‌حساب و تبدیل ارز در هر چت</p></div>
+</div></div>
+<div class="wrap" id="process" style="width:667px;height:200px"><div class="tile ink">
+  <div class="label"><i></i>روند کار</div><div class="grow"></div>
+  <div class="steps">
+    <div><span class="mono step">۱</span><h3>ثبت سفارش</h3></div>
+    <div><span class="mono step">۲</span><h3>صحبت و برآورد</h3></div>
+    <div><span class="mono step">۳</span><h3>ساخت</h3></div>
+    <div><span class="mono step">۴</span><h3>تحویل</h3></div>
+  </div>
+  <p class="small" style="margin-top:14px">ربات حداکثر یک هفته و سایت حداکثر یک ماه؛ تا یک ماه پس از تحویل، رفع اشکال رایگان است.</p>
+</div></div>
+<div class="wrap" id="pricing" style="width:333px;height:200px"><div class="tile coral raised">
+  <div class="arrow">↖</div>
+  <div class="label" style="color:var(--ink)">قیمت‌ها</div><div class="grow"></div>
+  <h2>محاسبه‌ی قیمت</h2><p class="small" style="color:var(--ink)">قیمت را ببینید و با یک پیام آماده در تلگرام سفارش دهید.</p>
+</div></div>
+<div class="wrap" id="c-telegram" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
+  <div class="label">پیام در تلگرام</div><div class="grow"></div><div class="mono handle">@isAmirMmd</div>
+</div></div><div class="wrap" id="c-channel" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
+  <div class="label">کانال تلگرام</div><div class="grow"></div><div class="mono handle">@nimByte</div>
+</div></div><div class="wrap" id="c-instagram" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
+  <div class="label">اینستاگرام</div><div class="grow"></div><div class="mono handle">@nimbyte.ir</div>
+</div></div><div class="wrap" id="c-bitty" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
+  <div class="label">ربات بیتی</div><div class="grow"></div><div class="mono handle">@bittyAi</div>
+</div></div><div class="wrap" id="c-blog" style="width:200px;height:116px"><div class="tile paper raised" style="padding:20px 20px">
+  <div class="label">بلاگ</div><div class="grow"></div><div class="mono handle">nimbyte.ir/blog</div>
+</div></div>
+
+</body>
+</html>
